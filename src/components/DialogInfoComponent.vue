@@ -1,7 +1,7 @@
 <template>
     <q-icon size="md" class="ml-1" color="primary" name="more_horiz" @click="isOpen = true">
         <q-tooltip> Ver detalles </q-tooltip></q-icon>
-    <q-dialog   v-model="isOpen">
+    <q-dialog v-model="isOpen">
         <q-card class=" p-3 w-full md:max-w-lg">
             <q-toolbar>
                 <q-avatar>
@@ -13,42 +13,41 @@
             </q-toolbar>
             <q-separator size="2px" color="blue mt-2" dark inset />
             <q-card-section>
-           
-                    <q-list>
-                        <q-item>
-                            <q-item-section>
-                                <div class="q-gutter-sm">
-                                    <span class="text-weight-bold inline-block">Nombre archivo:</span><span
-                                        class="inline-block">{{ fileData.nameFile }}</span>
-                                </div>
-                            </q-item-section>
-                        </q-item>
-                        <q-item v-ripple>
-                            <q-item-section>
-                                <div class="q-gutter-sm">
-                                    <span class="text-weight-bold">Nombres:</span>
-                                         <span >{{ fileData.firstName + fileData.lastName
-                                        }}</span>
-                                </div>
-                            </q-item-section>
-                        </q-item>
-                        <q-item v-ripple>
-                            <q-item-section>
-                                <div class="q-gutter-sm">
-                                    <span class="text-weight-bold">Cantidad de paginas</span> <span>{{
-                                        fileData.amountPages }}</span>
-                                </div>
-                            </q-item-section>
-                        </q-item>
-                        <q-item v-ripple>
-                            <q-item-section>
-                                <div class="q-gutter-sm">
-                                    <span class="text-weight-bold">Tamaño:</span> <span>{{ fileData.size }}</span>
-                                </div>
-                            </q-item-section>
-                        </q-item>
-                    </q-list>
-          
+                <q-list>
+                    <q-item>
+                        <q-item-section>
+                            <div class="q-gutter-sm">
+                                <span class="text-weight-bold inline-block">Nombre archivo:</span><span
+                                    class="inline-block">{{ fileData.nameFile }}</span>
+                            </div>
+                        </q-item-section>
+                    </q-item>
+                    <q-item v-ripple>
+                        <q-item-section>
+                            <div class="q-gutter-sm">
+                                <span class="text-weight-bold">Nombres:</span>
+                                <span>{{ fileData.firstName + fileData.lastName
+                                    }}</span>
+                            </div>
+                        </q-item-section>
+                    </q-item>
+                    <q-item v-ripple>
+                        <q-item-section>
+                            <div class="q-gutter-sm">
+                                <span class="text-weight-bold">Cantidad de paginas</span> <span>{{
+                                    fileData.amountPages }}</span>
+                            </div>
+                        </q-item-section>
+                    </q-item>
+                    <q-item v-ripple>
+                        <q-item-section>
+                            <div class="q-gutter-sm">
+                                <span class="text-weight-bold">Tamaño:</span> <span>{{ fileData.size }}</span>
+                            </div>
+                        </q-item-section>
+                    </q-item>
+                </q-list>
+
             </q-card-section>
         </q-card>
     </q-dialog>

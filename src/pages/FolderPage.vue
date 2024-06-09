@@ -20,7 +20,4 @@ const createFolder = () => {
         folderName.value = '';
     }
 };
-
-
-
 </script>

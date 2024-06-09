@@ -9,51 +9,25 @@
           </p>
         </q-card-section>
         <q-card-section>
-          <q-input
-            dense
-            outlined
-            v-model="email"
-            type="email"
-            label="Correo electronico"
-            lazy-rules
-            :rules="[
-              (val) =>
-                (val !== null && val !== '') || 'Por favor escribe tu correo',
-            ]"
-          />
-          <q-input
-            dense
-            outlined
-            class="q-mt-md"
-            v-model="password"
-            type="password"
-            label="Contraseña"
-            lazy-rules
+          <q-input dense outlined v-model="email" type="email" label="Correo electronico" lazy-rules :rules="[
+            (val) =>
+              (val !== null && val !== '') || 'Por favor escribe tu correo',
+          ]" />
+          <q-input dense outlined class="q-mt-md" v-model="password" type="password" label="Contraseña" lazy-rules
             :rules="[
               (val) =>
                 (val !== null && val !== '') ||
                 'Por favor escribe tu contraseña',
-            ]"
-          />
+            ]" />
         </q-card-section>
         <q-card-section>
-          <q-btn
-            color="dark"
-            type="submit"
-            rounded
-            size="md"
-            label="Inicia sesión"
-            no-caps
-            class="w-full rounded-md"
-          />
+          <q-btn color="dark" type="submit" rounded size="md" label="Inicia sesión" no-caps class="w-full rounded-md" />
         </q-card-section>
       </q-form>
       <q-card-section class="text-center q-pt-none">
         <div class="text-grey-8">
           ¿Aún no tienes una cuenta?
-          <RouterLink to="/signUp" class="text-black font-bold"
-            >Registrate</RouterLink
-          >
+          <RouterLink to="/signUp" class="text-black font-bold">Registrate</RouterLink>
         </div>
       </q-card-section>
     </q-card>

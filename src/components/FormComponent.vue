@@ -3,66 +3,22 @@
     <q-card class="w-full">
       <q-card-section>
         <q-form @submit="onSubmit" class="q-gutter-md">
-          <q-input
-            filled
-            type="number"
-            v-model="dataForm.identityDocument"
-            label="Id *"
-            lazy-rules
-            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']"
-          />
-          <q-input
-            filled
-            v-model="dataForm.firstName"
-            label="Nombre de pila *"
-            lazy-rules
-            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']"
-          />
-          <q-input
-            filled
-            v-model="dataForm.lastName"
-            label="Apellido *"
-            lazy-rules
-            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']"
-          />
-          <q-input
-            filled
-            v-model="dataForm.nameFile"
-            label="Nombre del archivo *"
-            lazy-rules
-            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']"
-          />
-          <q-input
-            filled
-            v-model="dataForm.amountPages"
-            label="Cantidad de páginas *"
-            lazy-rules
-            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']"
-          />
-          <q-input
-            filled
-            type="number"
-            v-model="fileSize"
-            :value="dataForm.size"
-            label="Tamaño *"
-            disable
-          />
-          <q-file
-            accept=".pdf,.xls,.xlsx,.png,.jpeg,.gif,.jpg"
-            v-model="dataForm.file"
-            label="Seleccione un archivo"
-            lazy-rules
-            :rules="[(val) => (val && val !== null) || 'Campo requerido']"
-          />
+          <q-input filled type="number" v-model="dataForm.identityDocument" label="Id *" lazy-rules
+            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']" />
+          <q-input filled v-model="dataForm.firstName" label="Nombre de pila *" lazy-rules
+            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']" />
+          <q-input filled v-model="dataForm.lastName" label="Apellido *" lazy-rules
+            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']" />
+          <q-input filled v-model="dataForm.nameFile" label="Nombre del archivo *" lazy-rules
+            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']" />
+          <q-input filled v-model="dataForm.amountPages" label="Cantidad de páginas *" lazy-rules
+            :rules="[(val) => (val && val.length > 0) || 'Campo requerido']" />
+          <q-input filled type="number" v-model="fileSize" :value="dataForm.size" label="Tamaño *" disable />
+          <q-file accept=".pdf,.xls,.xlsx,.png,.jpeg,.gif,.jpg" v-model="dataForm.file" label="Seleccione un archivo"
+            lazy-rules :rules="[(val) => (val && val !== null) || 'Campo requerido']" />
           <div>
             <q-btn label="Submit" type="submit" color="primary" />
-            <q-btn
-              label="cancelar"
-              type="button"
-              @click="onClose"
-              color="primary"
-              flat
-            />
+            <q-btn label="cancelar" type="button" @click="onClose" color="primary" flat />
           </div>
         </q-form>
       </q-card-section>
@@ -94,7 +50,7 @@ interface Props {
   fileData?: FileData;
   close: () => void;
   edit?: boolean;
-  folderId:string
+  folderId: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -103,9 +59,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 const onSubmit = () => {
   if (props.edit) {
-    editFileFolder(props.folderId,dataForm.value);
+    editFileFolder(props.folderId, dataForm.value);
   } else {
-    addFileToFolder(props.folderId,dataForm.value);
+    addFileToFolder(props.folderId, dataForm.value);
   }
   onClose();
 };

@@ -55,7 +55,5 @@ const onRegister = async () => {
       message: error.message
     })
   }
-
 }
-
 </script>

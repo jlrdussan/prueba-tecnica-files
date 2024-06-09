@@ -24,30 +24,31 @@ export const useFolderStore = defineStore('folder', {
     },
     addFileToFolder(folderId: string, file: FileData) {
       const folder = this.folders.find((folder) => folder.id === folderId);
-      folder?.files.push({...file,id: uuidv4(),pinUp:false});
+      folder?.files.push({ ...file, id: uuidv4(), pinUp: false });
     },
     editFileFolder(folderId: string, fileData: FileData) {
-        const folder = this.folders.find((folder) => folder.id === folderId);
-        const files = folder?.files.filter((file) => file.id === fileData.id);
-        const index = this.folders.findIndex((folder) => folder.id === folderId);
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const fileIndex = files!.findIndex((file) => file.id === fileData.id);
-        const file=this.folders[index].files[fileIndex]
-        this.folders[index].files[fileIndex] = {...file,...fileData}
+      const folder = this.folders.find(folder => folder.id === folderId);
+      if (folder) {
+        const fileIndex = folder.files.findIndex(file => file.id === fileData.id);
+        if (fileIndex !== -1) {
+          folder.files[fileIndex] = fileData;
+        }
+      }
     },
     deleteFileFolder(folderId: string, fileId?: string) {
-      const folder = this.folders.find((folder) => folder.id === folderId);
-      const files = folder?.files.filter((file) => file.id !== fileId);
-      const index = this.folders.findIndex((folder) => folder.id === folderId);
-      this.folders[index].files = files as  FileData[];
+      const folder = this.folders.find(folder => folder.id === folderId);
+      if (folder) {
+        folder.files = folder.files.filter(file => file.id !== fileId || file.pinUp);
+      }
     },
     setPinUpFileFolder(folderId: string, fileId?: string) {
-        const folder = this.folders.find((folder) => folder.id === folderId);
-        const files = folder?.files.filter((file) => file.id === fileId);
-        const index = this.folders.findIndex((folder) => folder.id === folderId);
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const fileIndex = files!.findIndex((file) => file.id === fileId);
-        this.folders[index].files[fileIndex].pinUp = !this.folders[index].files[fileIndex].pinUp
+      const folder = this.folders.find(folder => folder.id === folderId);
+      if (folder) {
+        const file = folder.files.find(file => file.id === fileId);
+        if (file) {
+          file.pinUp = !file.pinUp;
+        }
+      }
     },
   },
 });

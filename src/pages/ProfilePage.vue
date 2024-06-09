@@ -3,12 +3,12 @@
     <q-card class="my-card p-4" bordered>
       <q-card-section class="text-center q-pt-md">
         <h4>Perfil</h4>
-        <q-avatar >
+        <q-avatar>
           <img src="https://cdn.quasar.dev/img/avatar.png" />
         </q-avatar>
-        <p  class=" q-pt-md">Id: {{ store.user?.uid }}</p>
-        <p  class=" q-pt-md">Email: {{ store.user?.email }}</p>
-        <p  class=" q-pt-md">Email verificado: {{ store.user?.email ? 'si' : 'no' }}</p>
+        <p class=" q-pt-md">Id: {{ store.user?.uid }}</p>
+        <p class=" q-pt-md">Email: {{ store.user?.email }}</p>
+        <p class=" q-pt-md">Email verificado: {{ store.user?.email ? 'si' : 'no' }}</p>
       </q-card-section>
     </q-card>
   </q-page>
