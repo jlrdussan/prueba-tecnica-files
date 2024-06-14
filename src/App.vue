@@ -4,9 +4,9 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import {auth} from './config/firebase'
+import { auth } from './config/firebase'
 
-onMounted(()=>{auth})
+onMounted(() => { auth })
 defineOptions({
   name: 'App'
 });
