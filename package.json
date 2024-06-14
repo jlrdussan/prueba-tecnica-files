@@ -2,7 +2,7 @@
   "name": "prueba",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "productName": "Documentos App",
   "author": "jose rojas",
   "private": true,
   "scripts": {
@@ -24,11 +24,13 @@
   },
   "devDependencies": {
     "@quasar/app-vite": "^1.9.0",
+    "@quasar/quasar-app-extension-dotenv": "^1.1.0",
     "@types/node": "^12.20.21",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "autoprefixer": "^10.4.19",
+    "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",
